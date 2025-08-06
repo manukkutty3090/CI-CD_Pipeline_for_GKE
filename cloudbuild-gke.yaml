@@ -1,0 +1,18 @@
+steps:
+#clone the repo
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/manukkutty3090/CI-CD_Pipeline_for_GKE.git']
+
+#build the docker image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${VERSION}', '.']
+
+#push the docker image to gcr
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/${PROJECT_ID}/${IMAGE_NAME}:${VERSION}']
+
+#variables
+substitutions:
+  PROJECT_ID : devops-464507
+  IMAGE_NAME : gke-image
+  VERSION : v1.0
