@@ -16,3 +16,6 @@ substitutions:
   _PROJECT_ID : devops-464507
   _IMAGE_NAME : gke-image
   _VERSION : v1.0
+
+  options:
+  logging: CLOUD_LOGGING_ONLY
